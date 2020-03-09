@@ -18,8 +18,8 @@ def main_menu():
 		'1 - Display games\n'
 		'2 - Add game\n'
 		'3 - Delete game\n'
-		'4 - Leave\n')
-	choice = int(input(':'))
+		'4 - Leave')
+	choice = getch()
 	return(choice)
 
 
@@ -54,10 +54,12 @@ def show_games(cursor): # needs the cursor
 
 
 def delete_game(cursor, gameDB): # needs the cursor and the database
+	LANG = 'en'
 	os.system('clear')
 	print('Deleting a game\n')
 	name = str(input('Enter the name of the game you want to delete : '))
-	sure = str(input(f'Are you sure you want to delete this game : {name} [y/n]')) 
+	sure = str(input(f'Are you sure you want to delete this game : {name} [y/n]'))
+	invalid(sure, LANG)
 	if sure == 'y':
 		cursor.execute(f'DELETE FROM GAMES WHERE Name = \'{name}\'') # deletes the game(s) where the name is the one selected
 		gameDB.commit()
