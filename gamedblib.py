@@ -65,3 +65,4 @@ def delete_game(cursor, gameDB): # needs the cursor and the database
 		gameDB.commit()
 	else:
 		print('No row deleted')
+	
