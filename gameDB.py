@@ -4,7 +4,6 @@
 # --- Feel free to make your own modifications from this program !
 
 import os, sqlite3
-from mylib import *
 from gamedblib import *
 
 gameDB = sqlite3.connect('game.db')
@@ -16,7 +15,7 @@ tables = cursor.fetchall()
 if len(tables) == 0:
 	createDB(cursor, gameDB) # checking if the table exists, if not, it will create it
 
-dataNames = ['Name', 'Release date (dd.mm.yyyy)', 'Developer', 'Publisher', 'Platform'] # values in the database for each line
+dataNames = ['Name', 'Release date (dd.mm.yyyy)', 'Developer', 'Publisher', 'Platform', 'Web site'] # values in the database for each line
 
 menu = ''
 while not(menu == '4'):
